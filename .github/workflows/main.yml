@@ -15,14 +15,14 @@ jobs:
       - name: Build Docker image
         run: docker build -f FakeBloggingSystem/Dockerfile -t fake-blogging-api FakeBloggingSystem
 
-       - name: Start Docker container
+      - name: Start Docker container
         run: |
-          docker run -d --name fake-blogging-api -p 8080:8080 fake-blogging-api
-         
-      - name: Check container status
-        run: |
+          docker images
+          docker create --name fake-blogging-api -p 8080:8080 fake-blogging-api
+          docker start fake-blogging-api
           docker ps -a
-          docker logs fake-blogging-api
+         
+
           
       - name: Check endpoint
         run: |
@@ -33,8 +33,8 @@ jobs:
             fi
             sleep 2
           done
-
-          echo "Api error"
+          docker ps -a
+          exit 1
           docker ps -a
           exit 1
     
