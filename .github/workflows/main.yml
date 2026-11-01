@@ -28,21 +28,9 @@ jobs:
         run: |
           docker ps -a
           docker logs fake-blogging-api
-          for i in {1..15}; do
-            HTTP_CODE=$(curl -s -o /tmp/api-response.txt -w "%{http_code}"
-            http://localhost:8080/post/1 || true)
-             echo "Attempt $i: Http $HTTP_CODE"
-             cat /tmp/api-response.txt  
-             2>/dev/null || true
-              echo ""
-              if [ "$Http_Code" = "200" ] || ["$HTTP_CODE" = "404 ]; then
-               echo " success"
-               exit 0
-              fi
-              sleep 2
-              done
-
-              docker logs fake-blogging-api
-             logging-api
+          sleep 5 
+          curl -v http://localhost:8080/post/1 || true
+          docker logs fake-blogging-api
+-api
           exit 1
     
