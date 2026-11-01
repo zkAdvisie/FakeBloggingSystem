@@ -1,0 +1,6 @@
+@FakeBloggingSystem_HostAddress = http://localhost:5056
+
+GET {{FakeBloggingSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

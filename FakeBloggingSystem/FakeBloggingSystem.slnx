@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="coverlet.runsettings" />
+  </Folder>
+  <Project Path="FakeBloggingSystem.Tests/FakeBloggingSystem.Tests.csproj" Id="f67c8a87-17d3-4e66-ba23-1143116198e6" />
+  <Project Path="FakeBloggingSystem/FakeBloggingSystem.csproj" />
+</Solution>
