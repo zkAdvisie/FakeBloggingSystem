@@ -1,6 +1,6 @@
 ﻿namespace FakeBloggingSystem.DTOs
     {
-    public class AuthorResponse
+    public record AuthorResponse
         {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
