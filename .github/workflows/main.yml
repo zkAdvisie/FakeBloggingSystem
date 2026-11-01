@@ -31,6 +31,7 @@ jobs:
           sleep 5 
           curl -v http://localhost:8080/post/1 || true
           docker logs fake-blogging-api
--api
+
+
           exit 1
     
