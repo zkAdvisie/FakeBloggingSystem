@@ -31,8 +31,9 @@ jobs:
           for i in {1..15}; do
             HTTP_CODE=$(curl -s -o /tmp/api-response.txt -w "%{http_code}"
             http://localhost:8080/post/1 || true)
-             echo "Attempt $i: Http $Http_Code"
-             cat /tmp/api-response.txt 2>/dev/null ||true
+             echo "Attempt $i: Http $HTTP_CODE"
+             cat /tmp/api-response.txt  
+             2>/dev/null || true
               echo ""
               if [ "$Http_Code" = "200" ] || ["$HTTP_CODE" = "404 ]; then
                echo " success"
