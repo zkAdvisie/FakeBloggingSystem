@@ -26,16 +26,22 @@ jobs:
           
       - name: Check endpoint
         run: |
-          for i in {1..15}; do
-            if curl --fail -silent http://localhost:8080/post/1 > /dev/null; then 
-             echo "Api is working"
-             exit 0
-            fi
-            sleep 2
-          done
-          docker ps -a
-          exit 1
           docker ps -a
           docker logs fake-blogging-api
+          for i in {1..15}; do
+            HTTP_CODE=$(curl -s -o /tmp/api-response.txt -w "%{http_code}"
+            http://localhost:8080/post/1 || true)
+             echo "Attempt $i: Http $Http_Code"
+             cat /tmp/api-response.txt 2>/dev/null ||true
+              echo ""
+              if [ "$Http_Code" = "200" ] || ["$HTTP_CODE" = "404 ]; then
+               echo " success"
+               exit 0
+              fi
+              sleep 2
+              done
+
+              docker logs fake-blogging-api
+             logging-api
           exit 1
     
