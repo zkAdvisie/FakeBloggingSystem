@@ -2,7 +2,7 @@
 
 namespace FakeBloggingSystem.DTOs
     {
-    public class PostRequest
+    public record PostRequest
         {
         [Range(1, int.MaxValue, ErrorMessage = "AuthorId must be greater than 0.")]
         public int AuthorId { get; set; }
