@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t fake-blogging-api .
+        run: docker build -f FakeBloggingSystem/Dockerfile -t fake-blogging-api FakeBloggingSystem
