@@ -12,7 +12,9 @@ builder.Services.AddControllers()
     .AddJsonOptions(options =>
         {
             options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-        });
+        })
+    .AddXmlSerializerFormatters();
+
 
 builder.Services.AddDbContext<BlogDbContext>
     (options =>
