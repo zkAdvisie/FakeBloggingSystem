@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 Copy . .
-RUN dotnet restore "FakeBloggingSystem.csproj"
-RUN dotnet publish "FakeBloggingSystem.csproj" -c Release -o /app/publish --no-restore
+RUN dotnet restore "FakeBloggingSystem/FakeBloggingSystem.csproj"
+RUN dotnet publish "FakeBloggingSystem/FakeBloggingSystem.csproj" -c Release -o /app/publish --no-restore
 
 #Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
